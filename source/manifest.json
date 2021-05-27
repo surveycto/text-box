@@ -1,7 +1,7 @@
 {
-	"name" : "Baseline text field",
+	"name" : "Text box",
 	"author" : "Dobility",
-	"version": "3.0.9",
+	"version": "1.0.0",
 	"supportedFieldTypes": ["text"],
 	"hideDefaultRequiredMessage": false,
 	"hideDefaultConstraintMessage": false
