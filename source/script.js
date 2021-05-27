@@ -5,6 +5,8 @@ var isWebCollect = (document.body.className.indexOf('web-collect') >= 0)
 var isAndroid = (document.body.className.indexOf('android-collect') >= 0)
 var isIOS = (document.body.className.indexOf('ios-collect') >= 0)
 
+var labelContainer = document.querySelector('.label')
+
 // Find the input element
 var input = document.getElementById('text-field')
 
@@ -49,6 +51,11 @@ if (countChar === 1) {
   countChar = false
 }
 
+var textDir = getComputedStyle(labelContainer).direction
+if (textDir === 'rtl') {
+  countContainer.style.textAlign = 'left'
+}
+
 // Restricts input for the given textbox to the given inputFilter.
 function setInputFilter (textbox, inputFilter) {
   function restrictInput () {
@@ -88,7 +95,7 @@ function unEntity (str) {
   return str.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
 }
 if (fieldProperties.LABEL) {
-  document.querySelector('.label').innerHTML = unEntity(fieldProperties.LABEL)
+  labelContainer.innerHTML = unEntity(fieldProperties.LABEL)
 }
 if (fieldProperties.HINT) {
   document.querySelector('.hint').innerHTML = unEntity(fieldProperties.HINT)
