@@ -8,6 +8,41 @@ var isIOS = (document.body.className.indexOf('ios-collect') >= 0)
 // Find the input element
 var input = document.getElementById('text-field')
 
+var countContainer = document.querySelector('#char-count')
+var remainContainer = document.querySelector('#char-remaining')
+var ofContainer = document.querySelector('#of')
+var maxContainer = document.querySelector('#char-max')
+
+var numRows = getPluginParameter('rows')
+var countChar = getPluginParameter('count')
+var charMax = getPluginParameter('max')
+
+if ((numRows == null) || (isNaN(numRows))) {
+  numRows = 3
+} else {
+  numRows = parseInt(numRows)
+}
+input.rows = numRows
+
+if ((charMax == null) || (isNaN(charMax))) {
+  charMax = false
+} else {
+  charMax = parseInt(charMax)
+  input.maxlength = charMax
+}
+
+if (countChar === 1) {
+  countChar = true
+  countContainer.style.display = ''
+  if (isNaN(charMax)) {
+    ofContainer.style.display = 'hidden'
+  } else {
+    maxContainer.innerHTML = charMax
+  }
+} else {
+  countChar = false
+}
+
 // Restricts input for the given textbox to the given inputFilter.
 function setInputFilter (textbox, inputFilter) {
   function restrictInput () {
@@ -70,7 +105,12 @@ function setFocus () {
 
 // Save the user's response (update the current answer)
 input.oninput = function () {
-  setAnswer(input.value)
+  var inputValue = input.value
+  setAnswer(inputValue)
+
+  if (countChar) {
+    remainContainer.innerHTML = inputValue.length
+  }
 }
 
 // check for standard appearance options and apply them
