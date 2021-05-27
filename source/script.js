@@ -21,6 +21,9 @@ if ((numRows == null) || (isNaN(numRows))) {
   numRows = 3
 } else {
   numRows = parseInt(numRows)
+  if (numRows <= 0) {
+    numRows = 3
+  }
 }
 input.rows = numRows
 
