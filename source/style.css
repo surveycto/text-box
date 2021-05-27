@@ -10,6 +10,11 @@
     font-style: italic;
 }
 
+.remaining {
+    font-size: 15px;
+    text-align: right;
+}
+
 .response {
     /* add style rules here to change how the response appears */
     border: 1px solid #047CC2;
