@@ -1,4 +1,4 @@
-<label class="label default-question-text-size" for="text-field">{{{LABEL}}}</label>
+<label class="label default-question-text-size" for="text-field" dir="auto">{{{LABEL}}}</label>
 
 <!-- If there is an image specified in the media:image column, show it here -->
 {{#MEDIAIMAGE}}
@@ -21,9 +21,9 @@
     </video>
 {{/MEDIAVIDEO}}
 
-<div class="hint default-hint-text-size">{{{HINT}}}</div>
+<div class="hint default-hint-text-size" dir="auto">{{{HINT}}}</div>
 
-<div id="char-count" style="display:none">Characters: <span id="char-remaining"></span><span id="of"> of <span id="char-max"></span> remaining</span></div>
+<div id="char-count" style="display:none" class="remaining" dir="auto"><span id="char-remaining"></span><span id="of"> of <span id="char-max"></span> remaining</span></div>
 
 <!-- If the field is marked read only, then only show the input box if there is a current answer. -->
 {{#READONLY}}
