@@ -23,28 +23,26 @@
 
 <div class="hint default-hint-text-size">{{{HINT}}}</div>
 
-<div id="char-count" style="display:hidden">Characters: <span id="char-remaining"></span><span id="of"> of <span id="char-max"></span></span></div>
+<div id="char-count" style="display:none">Characters: <span id="char-remaining"></span><span id="of"> of <span id="char-max"></span> remaining</span></div>
 
 <!-- If the field is marked read only, then only show the input box if there is a current answer. -->
 {{#READONLY}}
     {{#CURRENT_ANSWER}}
-    <input 
-        type="text" 
-        value="{{CURRENT_ANSWER}}" 
-        id="text-field" 
-        class="response default-answer-text-size" 
-        readonly
-    />
+    <textarea 
+    type="text"
+    id="text-field" 
+    class="response default-answer-text-size" 
+    placeholder="Your answer here..." 
+    readonly>{{CURRENT_ANSWER}}</textarea>
     {{/CURRENT_ANSWER}}
 {{/READONLY}}
 
 <!-- if the field is not marked read only, show the input box always. -->
 {{^READONLY}}
 <textarea 
-    type="text" 
-    value="{{CURRENT_ANSWER}}" 
+    type="text"
     id="text-field" 
     class="response default-answer-text-size" 
     placeholder="Your answer here..." 
-></textarea>
+>{{CURRENT_ANSWER}}</textarea>
 {{/READONLY}}

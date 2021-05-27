@@ -28,16 +28,19 @@ if ((charMax == null) || (isNaN(charMax))) {
   charMax = false
 } else {
   charMax = parseInt(charMax)
-  input.maxlength = charMax
+  input.maxLength = charMax
 }
 
 if (countChar === 1) {
   countChar = true
   countContainer.style.display = ''
-  if (isNaN(charMax)) {
-    ofContainer.style.display = 'hidden'
+  var currentLength = input.value.length
+  if (charMax === false) {
+    ofContainer.style.display = 'none'
+    remainContainer.innerHTML = currentLength
   } else {
     maxContainer.innerHTML = charMax
+    remainContainer.innerHTML = charMax - currentLength
   }
 } else {
   countChar = false
@@ -90,7 +93,7 @@ if (fieldProperties.HINT) {
 
 // Define what happens when the user attempts to clear the response
 function clearAnswer () {
-  input.value = ''
+  input.innerHTML = input.value = ''
 }
 
 // If the field is not marked readonly, then focus on the field and show the on-screen keyboard (for mobile devices)
@@ -109,7 +112,11 @@ input.oninput = function () {
   setAnswer(inputValue)
 
   if (countChar) {
-    remainContainer.innerHTML = inputValue.length
+    var inputLength = inputValue.length
+    remainContainer.innerHTML = inputLength
+    if (charMax !== false) {
+      remainContainer.innerHTML = charMax - inputLength
+    }
   }
 }
 
