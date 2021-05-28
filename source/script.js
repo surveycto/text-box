@@ -33,7 +33,7 @@ if ((charMax == null) || (isNaN(charMax))) {
   charMax = false
 } else {
   charMax = parseInt(charMax)
-  input.maxLength = charMax
+  // input.maxLength = charMax // NEED TO UNCOMMENT
 }
 
 if (countChar === 1) {
@@ -112,7 +112,8 @@ if (fieldProperties.HINT) {
 
 // Define what happens when the user attempts to clear the response
 function clearAnswer () {
-  input.innerHTML = input.value = ''
+  input.innerHTML = ''
+  input.value = ''
 }
 
 // If the field is not marked readonly, then focus on the field and show the on-screen keyboard (for mobile devices)
@@ -128,7 +129,13 @@ function setFocus () {
 // Save the user's response (update the current answer)
 input.oninput = function () {
   var inputValue = input.value
-  setAnswer(inputValue)
+
+  // Limiter for Android devices, in case too long
+  if ((charMax !== false) && (inputValue.length > charMax)) {
+    inputValue = inputValue.substr(0, charMax)
+    input.value = inputValue
+    input.innerHTML = inputValue
+  }
 
   if (countChar) {
     var inputLength = inputValue.length
@@ -137,6 +144,8 @@ input.oninput = function () {
       remainContainer.innerHTML = charMax - inputLength
     }
   }
+
+  setAnswer(inputValue)
 }
 
 // check for standard appearance options and apply them
