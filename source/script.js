@@ -51,7 +51,14 @@ if (countChar === 1) {
   countChar = false
 }
 
-var textDir = getComputedStyle(labelContainer).direction
+var labelChildren = labelContainer.children
+var textDir
+if (labelChildren.length === 0) {
+  textDir = getComputedStyle(labelContainer).direction
+} else {
+  textDir = getComputedStyle(labelChildren[0]).direction
+}
+
 if (textDir === 'rtl') {
   countContainer.style.textAlign = 'left'
 }
