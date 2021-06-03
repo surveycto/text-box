@@ -23,8 +23,6 @@
 
 <div class="hint default-hint-text-size" dir="auto">{{{HINT}}}</div>
 
-<div id="char-count" style="display:none" class="remaining" dir="auto"><span id="char-remaining"></span><span id="of"> of <span id="char-max"></span> remaining</span></div>
-
 <!-- If the field is marked read only, then only show the input box if there is a current answer. -->
 {{#READONLY}}
     {{#CURRENT_ANSWER}}
@@ -46,3 +44,5 @@
     placeholder="Your answer here..." 
 >{{CURRENT_ANSWER}}</textarea>
 {{/READONLY}}
+
+<div id="char-count" style="display:none" class="remaining" dir="auto"><span id="char-remaining"></span><span id="of"> / <span id="char-max"></span></span></div>
