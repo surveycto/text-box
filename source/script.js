@@ -36,7 +36,7 @@ if ((charMax == null) || (isNaN(charMax))) {
   // input.maxLength = charMax // NEED TO UNCOMMENT
 }
 
-if (countChar === 1) {
+if ((countChar === 1) || ((charMax !== false) && (countChar !== 0))) {
   countChar = true
   countContainer.style.display = ''
   var currentLength = input.value.length
