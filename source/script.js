@@ -1,4 +1,4 @@
-/* global fieldProperties, setAnswer, getPluginParameter */
+/* global fieldProperties, setAnswer, getPluginParameter, getComputedStyle */
 
 // Detect platform
 var isWebCollect = (document.body.className.indexOf('web-collect') >= 0)
@@ -62,7 +62,6 @@ if (labelChildren.length === 0) {
 if (textDir === 'rtl') {
   countContainer.style.textAlign = 'left'
   input.style.textAlign = 'right'
-
 }
 
 // Restricts input for the given textbox to the given inputFilter.
