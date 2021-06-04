@@ -47,14 +47,10 @@ This field also inherits the parameter from the [baseline-text](https://github.c
 
 The behavior of the `count` parameter will depend on the value of the `max` parameter:
 
-* **`max` has numeric value, and `count` is not specified**: The field will show the number of characters remaining, and the number of total characters that can be enterered, separated by a `/`.
-* **`max` has numeric value, and `count` has a value of `0`**: The count will be hidden.
+* **`max` has a numeric value, and `count` is not specified**: The field will show the number of characters remaining, and the number of total characters that can be enterered, separated by a `/`.
+* **`max` has a numeric value, and `count` has a value of `0`**: The count will be hidden.
 * **`max` has no value, and `count` is not specified**:  The count will be hidden.
 * **`max` has no value, and `count` has a value of `1`**: The field will show the number of characters entered so far.
-
-#### max
-
-Due to limitations 
 
 ### Default SurveyCTO feature support
 
