@@ -33,7 +33,7 @@ if ((charMax == null) || (isNaN(charMax))) {
   charMax = false
 } else {
   charMax = parseInt(charMax)
-  // input.maxLength = charMax // NEED TO UNCOMMENT
+  input.maxLength = charMax
 }
 
 if ((countChar === 1) || ((charMax !== false) && (countChar !== 0))) {
@@ -130,7 +130,7 @@ input.oninput = function () {
   var inputValue = input.value
 
   // Limiter for Android devices, in case too long
-  if ((charMax !== false) && (inputValue.length > charMax)) {
+  if (isAndroid && (charMax !== false) && (inputValue.length > charMax)) {
     inputValue = inputValue.substr(0, charMax)
     input.value = inputValue
     input.innerHTML = inputValue
