@@ -40,8 +40,13 @@
 <textarea 
     type="text"
     id="text-field" 
-    class="response default-answer-text-size" 
-    placeholder="Your answer here..." 
+    class="response default-answer-text-size"
+    {{#QUESTION_PLACEHOLDER_LABEL}}
+      placeholder="{{QUESTION_PLACEHOLDER_LABEL}}"
+    {{/QUESTION_PLACEHOLDER_LABEL}}
+    {{^QUESTION_PLACEHOLDER_LABEL}}
+      placeholder="Your answer here..."
+    {{/QUESTION_PLACEHOLDER_LABEL}}
 >{{CURRENT_ANSWER}}</textarea>
 {{/READONLY}}
 
