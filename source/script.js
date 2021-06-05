@@ -62,6 +62,7 @@ if (labelChildren.length === 0) {
 if (textDir === 'rtl') {
   countContainer.style.textAlign = 'left'
   input.style.textAlign = 'right'
+  input.dir = 'rtl'
 }
 
 // Restricts input for the given textbox to the given inputFilter.
