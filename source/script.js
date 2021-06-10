@@ -18,16 +18,34 @@ var maxContainer = document.querySelector('#char-max')
 var numRows = getPluginParameter('rows')
 var countChar = getPluginParameter('count')
 var charMax = getPluginParameter('max')
+var expand = getPluginParameter('expand')
+
+if (expand === 1) {
+  expand = true
+} else {
+  expand = false
+}
 
 if ((numRows == null) || (isNaN(numRows))) {
-  numRows = 3
+  if (expand) {
+    numRows = 0
+  } else {
+    numRows = 3
+  }
 } else {
   numRows = parseInt(numRows)
   if (numRows <= 0) {
-    numRows = 3
+    if (expand) {
+      numRows = 3
+    }
+  }
+  if (expand) {
+    numRows *= 16 // Change this based on font size
   }
 }
-input.rows = numRows
+if (!expand) {
+  input.rows = numRows
+}
 
 if ((charMax == null) || (isNaN(charMax))) {
   charMax = false
@@ -80,8 +98,11 @@ function resizeTextBox () {
   hiddenDiv.style.display = 'block'
   hiddenDiv.style.width = input.offsetWidth + 'px' // In case the window is reshaped
   hiddenText.innerHTML = input.value.replaceAll('\n', '<br>&8203;') // The &8203; is a zero-width space, so that there is content on a blank line. This is so a blank line with nothing after it actually takes effect
-  input.style.height = hiddenDiv.offsetHeight + 'px'
+  var newHeight = hiddenDiv.offsetHeight
   hiddenDiv.style.display = 'none'
+  if ((numRows === 0) || (numRows > newHeight)) {
+    input.style.height = newHeight + 'px'
+  }
 }
 
 // Restricts input for the given textbox to the given inputFilter.

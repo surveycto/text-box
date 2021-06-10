@@ -24,7 +24,7 @@
     border: 1px solid #047CC2;
     box-sizing: border-box;
     margin: .5rem 0;
-    overflow: hidden;
+    /* overflow: hidden; */
     padding: var(--padding);
     resize: none;
     width: 100%;
