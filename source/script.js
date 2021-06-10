@@ -79,7 +79,7 @@ window.onload = resizeTextBox
 function resizeTextBox () {
   hiddenDiv.style.display = 'block'
   hiddenDiv.style.width = input.offsetWidth + 'px' // In case the window is reshaped
-  hiddenText.innerHTML = input.value
+  hiddenText.innerHTML = input.value.replaceAll('\n', '<br>&8203;') // The &8203; is a zero-width space, so that there is content on a blank line. This is so a blank line with nothing after it actually takes effect
   input.style.height = hiddenDiv.offsetHeight + 'px'
   hiddenDiv.style.display = 'none'
 }
