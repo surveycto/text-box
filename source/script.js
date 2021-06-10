@@ -40,7 +40,7 @@ if ((numRows == null) || (isNaN(numRows))) {
     }
   }
   if (expand) {
-    numRows *= 16 // Change this based on font size
+    numRows = (numRows + 1.75) * 16 // Change this based on font size
   }
 }
 if (!expand) {
@@ -102,6 +102,8 @@ function resizeTextBox () {
   hiddenDiv.style.display = 'none'
   if ((numRows === 0) || (numRows > newHeight)) {
     input.style.height = newHeight + 'px'
+  } else {
+    input.style.height = numRows + 'px'
   }
 }
 
