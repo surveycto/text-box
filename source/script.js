@@ -83,16 +83,17 @@ if (textDir === 'rtl') {
   input.dir = 'rtl'
 }
 
-
 // RESIZE TEXT BOX; method inspired by https://www.impressivewebs.com/textarea-auto-resize/
 
-var hiddenDiv = document.querySelector('.hidden-text')
-var hiddenText = hiddenDiv.querySelector('p')
+if (expand) {
+  var hiddenDiv = document.querySelector('.hidden-text')
+  var hiddenText = hiddenDiv.querySelector('p')
 
-hiddenDiv.style.width = input.offsetWidth + 'px'
+  hiddenDiv.style.width = input.offsetWidth + 'px'
 
-input.addEventListener('input', resizeTextBox)
-window.onload = resizeTextBox
+  input.addEventListener('input', resizeTextBox)
+  window.onload = resizeTextBox
+}
 
 function resizeTextBox () {
   hiddenDiv.style.display = 'block'
