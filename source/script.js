@@ -189,10 +189,14 @@ input.oninput = function () {
 
 // check for standard appearance options and apply them
 if (fieldProperties.APPEARANCE.includes('numbers_phone') === true) {
-  input.type = 'tel'
-} else if (fieldProperties.APPEARANCE.includes('numbers_decimal') === true) {
-  input.pattern = '[0-9]*'
+  setInputMode('tel')
 
+  if (!fieldProperties.READONLY) {
+    setInputFilter(input, function (value) {
+      return /^[0-9\-+.#* ]*$/.test(value)
+    })
+  }
+} else if (fieldProperties.APPEARANCE.includes('numbers_decimal') === true) {
   setInputMode('numeric')
 
   // For iOS, we'll default the inputmode to 'numeric' (as defined above), unless some specific value is
@@ -225,5 +229,10 @@ if (fieldProperties.APPEARANCE.includes('numbers_phone') === true) {
     })
   }
 } else if (fieldProperties.APPEARANCE.includes('numbers') === true) {
-  input.type = 'number'
+  setInputMode('numeric')
+  if (!fieldProperties.READONLY) {
+    setInputFilter(input, function (value) {
+      return /^-?[0-9]*$/.test(value)
+    })
+  }
 }

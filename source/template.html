@@ -25,14 +25,14 @@
 
 <!-- If the field is marked read only, then only show the input box if there is a current answer. -->
 {{#READONLY}}
-    {{#CURRENT_ANSWER}}
     <textarea 
     type="text"
     id="text-field" 
     class="response default-answer-text-size" 
     placeholder="Your answer here..." 
-    readonly>{{CURRENT_ANSWER}}</textarea>
-    {{/CURRENT_ANSWER}}
+    readonly
+    {{^CURRENT_ANSWER}}style="display:none"{{/CURRENT_ANSWER}}>{{CURRENT_ANSWER}}</textarea>
+    
 {{/READONLY}}
 
 <!-- if the field is not marked read only, show the input box always. -->
