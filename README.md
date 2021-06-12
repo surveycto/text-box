@@ -73,9 +73,11 @@ Also, instead of the `rows` parameter being used to determine the number of rows
 | media:image | Yes |
 | media:audio | Yes |
 | media:video | Yes |
-| `numbers` appearance | Yes |
-| `numbers-decimal` appearance | Yes |
-| `numbers-phone` appearance | Yes |
+| `numbers` appearance | Yes* |
+| `numbers_decimal` appearance | Yes |
+| `numbers_phone` appearance | Yes |
+
+\*Note: Some mobile devices may not allow negative numbers when using the "numbers" *appearance*. If you need to collect negative numbers, you may want to use "numbers_decimal" instead.
 
 ## More resources
 
