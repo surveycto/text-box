@@ -12,8 +12,6 @@ var input = document.getElementById('text-field')
 
 var countContainer = document.querySelector('#char-count')
 var remainContainer = document.querySelector('#char-remaining')
-var ofContainer = document.querySelector('#of')
-var maxContainer = document.querySelector('#char-max')
 
 var numRows = getPluginParameter('rows')
 var countChar = getPluginParameter('count')
@@ -59,10 +57,8 @@ if ((countChar === 1) || ((charMax !== false) && (countChar !== 0))) {
   countContainer.style.display = ''
   var currentLength = input.value.length
   if (charMax === false) {
-    ofContainer.style.display = 'none'
     remainContainer.innerHTML = currentLength
   } else {
-    maxContainer.innerHTML = charMax
     remainContainer.innerHTML = charMax - currentLength
   }
 } else {
