@@ -40,9 +40,9 @@ This field returns the text entered into the text box.
 |Name|Description|
 |---|---|
 |`rows` (optional)|The number of rows in the text box shown at a time. In other words, the height of the text box. Behavior is different if `expand` has a value of `1`; [see below](#expand) for details.<br>Default: 3|
-|`max` (optional)|The maximum number of characters that can be entered into the text box. If this parameter has no value, then there is no limit.|
+|`max` (optional)|The maximum number of characters that can be entered into the text box. If this parameter has no value, then there is no limit. This is helpful if you would like to make sure enumerators/enumerators do not enter too much information. It will also have a countdown showing the number of characters remaining.|
 |`count` (optional)|Whether or not to show the character count so far. [See below](#count) for more details.|
-|`expand` (optional|If this parameter has a value of `1`, then the text box will expand to fit the content.|
+|`expand` (optional|If this parameter has a value of `1`, then the text box will expand to fit the content. This can be helpful if you would like enumerators to be able to easily view all content they have entered at once. This is also the default behavior of fields without field plug-ins.|
 
 This field also inherits the parameter from the [baseline-text](https://github.com/surveycto/baseline-text/blob/master/README.md) field plug-in.
 
