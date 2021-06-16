@@ -8,7 +8,7 @@
 
 ## Description
 
-Use this field plug-in if text responses will be somewhat longer, and you would like to have a larger text box to enter the data. You can also use this field plug-in to put in a limit to the amount of text that can be entered, without needing to check it against a *constraint*.
+Use this field plug-in if text responses will be somewhat longer, and you would like to have a larger text box to enter the data. You can also use this field plug-in to add a limit to the amount of text that can be entered, without needing to check it against a *constraint*.
 
 [![Download now](extras/readme-images/download-button.png)](https://github.com/surveycto/text-box/raw/master/text-box.fieldplugin.zip)
 
