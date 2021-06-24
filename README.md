@@ -17,8 +17,8 @@ Use this field plug-in if text responses will be somewhat longer, and you would 
 * Larger text box with customizable size
 * Limit number of characters that can be entered
 * Show character count
-* Set to expand to fit content, just like in fields without field plug-ins.
-* Set maximum expansion size.
+* Set to expand to fit content, just like in fields without field plug-ins
+* Set maximum expansion size
 
 This field plug-in also inherits functionality from the [baseline-text](https://github.com/surveycto/baseline-text/blob/master/README.md) field plug-in.
 
