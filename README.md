@@ -69,11 +69,13 @@ This field also inherits the parameter from the [baseline-text](https://github.c
 | media:image | Yes |
 | media:audio | Yes |
 | media:video | Yes |
-| `numbers` appearance | Yes* |
-| `numbers_decimal` appearance | Yes |
-| `numbers_phone` appearance | Yes |
+| `numbers` appearance | Yes*† |
+| `numbers_decimal` appearance | Yes* |
+| `numbers_phone` appearance | Yes* |
 
-\*Note: Some mobile devices may not allow negative numbers when using the "numbers" *appearance*. If you need to collect negative numbers, you may want to use "numbers_decimal" instead.
+\* Supported on Android 7 and up only. See [requirements](#requirements) above for more info.
+
+† Some mobile devices may not allow negative numbers when using the "numbers" *appearance*. If you need to collect negative numbers, you may want to use "numbers_decimal" instead.
 
 ## More resources
 
