@@ -1,8 +1,8 @@
 # Text box
 
-![Default appearance for the 'text-box' field plug-in](extras/preview-images/default.jpg)
+<img src="extras/readme-images/default.png" width="300px" alt="Default appearance for the 'text-box' field plug-in">
 
-|<img src="extras/preview-images/max.jpg" width="100px">|<img src="extras/preview-images/count.jpg" width="100px">|<img src="extras/preview-images/six_rows.jpg" width="100px">|
+|<img src="extras/readme-images/max.png" width="100px">|<img src="extras/readme-images/count.png" width="100px">|<img src="extras/readme-images/six_rows.png" width="100px">|
 |:---:|:---:|:---:|
 |Max|Count|6 rows|
 
@@ -10,7 +10,11 @@
 
 Use this field plug-in if text responses will be somewhat longer, and you would like to have a larger text box to enter the data. You can also use this field plug-in to add a limit to the amount of text that can be entered, without needing to check it against a *constraint*.
 
-[![Download now](extras/readme-images/download-button.png)](https://github.com/surveycto/text-box/raw/master/text-box.fieldplugin.zip)
+[![Beta](extras/readme-images/beta-release-download.jpg)](https://github.com/surveycto/text-box/raw/master/text-box.fieldplugin.zip)
+
+*This plug-in is currently under beta. If you you find a problem with the field plug-in, please email support@surveycto.com, or submit an issue to this GitHub repo.*
+
+
 
 ### Features
 
