@@ -26,6 +26,15 @@ Use this field plug-in if text responses will be somewhat longer, and you would 
 
 This field plug-in also inherits functionality from the [baseline-text](https://github.com/surveycto/baseline-text/blob/master/README.md) field plug-in.
 
+### Requirements
+
+For full use of all features on Android, Android 7 or up is required. However, the field plug-in will still work well on older versions of Android. Here is a list of limitations on older versions of Android:
+
+* Different <i>appearance</i>s ("numbers", "numbers_decimal", and "numbers_phone") will not work properly
+* When using the `expand` [parameter](#parameters), the box will not completely expand to fit all content, but it will be close
+
+Because web browsers and iOS devices are kept more up-to-date with the latest features, nearly all web browsers and iOS devices should support the field plug-in, but be sure test on your collection device to be sure.
+
 ### Data format
 
 This field returns the text entered into the text box.
