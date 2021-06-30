@@ -91,6 +91,14 @@ if (expand) {
   window.onload = resizeTextBox
 }
 
+String.prototype.replaceAll = function (find, replace) {
+  var newString = this
+  while (newString.indexOf(find) !== -1) {
+    newString = newString.replace(find, replace)
+  }
+  return newString
+}
+
 function resizeTextBox () {
   hiddenDiv.style.display = 'block'
   hiddenDiv.style.width = input.offsetWidth + 'px' // In case the window is reshaped
@@ -188,7 +196,7 @@ input.oninput = function () {
 }
 
 // check for standard appearance options and apply them
-if (fieldProperties.APPEARANCE.includes('numbers_phone') === true) {
+if (fieldProperties.APPEARANCE.indexOf('numbers_phone') !== -1) {
   setInputMode('tel')
 
   if (!fieldProperties.READONLY) {
@@ -196,7 +204,7 @@ if (fieldProperties.APPEARANCE.includes('numbers_phone') === true) {
       return /^[0-9\-+.#* ]*$/.test(value)
     })
   }
-} else if (fieldProperties.APPEARANCE.includes('numbers_decimal') === true) {
+} else if (fieldProperties.APPEARANCE.indexOf('numbers_decimal') !== -1) {
   setInputMode('numeric')
 
   // For iOS, we'll default the inputmode to 'numeric' (as defined above), unless some specific value is
@@ -228,7 +236,7 @@ if (fieldProperties.APPEARANCE.includes('numbers_phone') === true) {
       return /^-?\d*[.,]?\d*$/.test(value)
     })
   }
-} else if (fieldProperties.APPEARANCE.includes('numbers') === true) {
+} else if (fieldProperties.APPEARANCE.indexOf('numbers') !== -1) {
   setInputMode('numeric')
   if (!fieldProperties.READONLY) {
     setInputFilter(input, function (value) {
