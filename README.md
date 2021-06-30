@@ -10,7 +10,7 @@
 
 Use this field plug-in if text responses will be somewhat longer, and you would like to have a larger text box to enter the data. You can also use this field plug-in to add a limit to the amount of text that can be entered, without needing to check it against a *constraint*.
 
-[![Beta](extras/readme-images/beta-release-download.jpg)](https://github.com/surveycto/text-box/raw/master/text-box.fieldplugin.zip)
+[![Beta](extras/readme-images/beta-release-download.jpg)](https://github.com/surveycto/text-box/raw/main/text-box.fieldplugin.zip)
 
 *This plug-in is currently under beta. If you you find a problem with the field plug-in, please email support@surveycto.com, or submit an issue to this GitHub repo.*
 
@@ -43,8 +43,8 @@ This field returns the text entered into the text box.
 
 **To use this field plug-in as-is:**
 
-1. Download the [sample form](https://github.com/surveycto/text-box/blob/master/extras/sample-form/Text%20box%20sample%20form.xlsx?raw=true) from this repo and upload it to your SurveyCTO server.
-1. Download the [text-box.fieldplugin.zip](https://github.com/surveycto/text-box/raw/master/text-box.fieldplugin.zip) file from this repo, and attach it to the sample form on your SurveyCTO server.
+1. Download the [sample form](https://github.com/surveycto/text-box/blob/main/extras/sample-form/Text%20box%20sample%20form.xlsx?raw=true) from this repo and upload it to your SurveyCTO server.
+1. Download the [text-box.fieldplugin.zip](https://github.com/surveycto/text-box/raw/main/text-box.fieldplugin.zip) file from this repo, and attach it to the sample form on your SurveyCTO server.
 
 ### Parameters
 
