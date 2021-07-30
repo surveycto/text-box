@@ -52,6 +52,7 @@ if ((charMax == null) || (isNaN(charMax))) {
   input.maxLength = charMax
 }
 
+// Character counter display
 if ((countChar === 1) || ((charMax !== false) && (countChar !== 0))) {
   countChar = true
   countContainer.style.display = ''
@@ -91,6 +92,7 @@ if (expand) {
   window.onload = resizeTextBox
 }
 
+// For older devices
 String.prototype.replaceAll = function (find, replace) {
   var newString = this
   while (newString.indexOf(find) !== -1) {
@@ -184,6 +186,7 @@ input.oninput = function () {
     input.innerHTML = inputValue
   }
 
+  // Display character count
   if (countChar) {
     var inputLength = inputValue.length
     remainContainer.innerHTML = inputLength
