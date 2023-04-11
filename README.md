@@ -12,8 +12,6 @@ Use this field plug-in if text responses will be somewhat longer, and you would 
 
 [![Beta](extras/readme-images/download-button.png)](https://github.com/surveycto/text-box/raw/main/text-box.fieldplugin.zip)
 
-*This plug-in is currently under beta. If you you find a problem with the field plug-in, please email support@surveycto.com, or submit an issue to this GitHub repo.*
-
 ### Features
 
 * Larger text box with customizable size
