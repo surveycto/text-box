@@ -17,6 +17,7 @@ var numRows = getPluginParameter('rows')
 var countChar = getPluginParameter('count')
 var charMax = getPluginParameter('max')
 var expand = getPluginParameter('expand')
+var placeholderText = getPluginParameter('placeholder')
 
 if (expand === 1) {
   expand = true
@@ -24,7 +25,7 @@ if (expand === 1) {
   expand = false
 }
 
-if ((numRows == null) || (isNaN(numRows))) {
+if ((numRows === null) || (numRows === undefined) || (isNaN(numRows))) {
   if (expand) {
     numRows = 0
   } else {
@@ -45,7 +46,7 @@ if (!expand) {
   input.rows = numRows
 }
 
-if ((charMax == null) || (isNaN(charMax))) {
+if ((charMax === null) || (charMax === undefined) || (isNaN(charMax))) {
   charMax = false
 } else {
   charMax = parseInt(charMax)
@@ -92,20 +93,22 @@ if (expand) {
   window.onload = resizeTextBox
 }
 
-// For older devices
-String.prototype.replaceAll = function (find, replace) {
-  var newString = this
-  while (newString.indexOf(find) !== -1) {
-    newString = newString.replace(find, replace)
+// For older devices - only add replaceAll if it doesn't exist
+if (!String.prototype.replaceAll) {
+  String.prototype.replaceAll = function (find, replace) {
+    var newString = this
+    while (newString.indexOf(find) !== -1) {
+      newString = newString.replace(find, replace)
+    }
+    return newString
   }
-  return newString
 }
 
-function resizeTextBox () {
+function resizeTextBox() {
   hiddenDiv.style.display = 'block'
   hiddenDiv.style.width = input.offsetWidth + 'px' // In case the window is reshaped
   hiddenText.innerHTML = input.value.replaceAll('\n', '<br>&8203;') // The &8203; is a zero-width space, so that there is content on a blank line. This is so a blank line with nothing after it actually takes effect
-  var newHeight = hiddenDiv.offsetHeight
+  var newHeight = hiddenDiv.offsetHeight + 2 // Add 2px to account for textarea's top and bottom borders
   hiddenDiv.style.display = 'none'
   if ((numRows === 0) || (numRows > newHeight)) {
     input.style.height = newHeight + 'px'
@@ -115,8 +118,8 @@ function resizeTextBox () {
 }
 
 // Restricts input for the given textbox to the given inputFilter.
-function setInputFilter (textbox, inputFilter) {
-  function restrictInput () {
+function setInputFilter(textbox, inputFilter) {
+  function restrictInput() {
     if (inputFilter(this.value)) {
       this.oldSelectionStart = this.selectionStart
       this.oldSelectionEnd = this.selectionEnd
@@ -134,13 +137,12 @@ function setInputFilter (textbox, inputFilter) {
   textbox.addEventListener('keydown', restrictInput)
   textbox.addEventListener('keyup', restrictInput)
   textbox.addEventListener('mousedown', restrictInput)
-  textbox.addEventListener('mousedown', restrictInput)
   textbox.addEventListener('contextmenu', restrictInput)
   textbox.addEventListener('drop', restrictInput)
 }
 
 // Set/remove the 'inputmode'.
-function setInputMode (attributeValue) {
+function setInputMode(attributeValue) {
   if (attributeValue === null) {
     input.removeAttribute('inputmode')
   } else {
@@ -149,8 +151,8 @@ function setInputMode (attributeValue) {
 }
 
 // If the field label or hint contain any HTML that isn't in the form definition, then the < and > characters will have been replaced by their HTML character entities, and the HTML won't render. We need to turn those HTML entities back to actual < and > characters so that the HTML renders properly. This will allow you to render HTML from field references in your field label or hint.
-function unEntity (str) {
-  return str.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+function unEntity(str) {
+  return str.replace(/</g, '<').replace(/>/g, '>')
 }
 if (fieldProperties.LABEL) {
   labelContainer.innerHTML = unEntity(fieldProperties.LABEL)
@@ -159,14 +161,31 @@ if (fieldProperties.HINT) {
   document.querySelector('.hint').innerHTML = unEntity(fieldProperties.HINT)
 }
 
+// Set placeholder text
+if (placeholderText !== undefined) {
+  if (placeholderText === '') {
+    // Empty string means no placeholder
+    input.placeholder = ''
+  } else {
+    input.placeholder = placeholderText
+  }
+} else {
+  // Use default behavior
+  if (fieldProperties.QUESTION_PLACEHOLDER_LABEL) {
+    input.placeholder = fieldProperties.QUESTION_PLACEHOLDER_LABEL
+  } else {
+    input.placeholder = "Your answer here..."
+  }
+}
+
 // Define what happens when the user attempts to clear the response
-function clearAnswer () {
+function clearAnswer() {
   input.innerHTML = ''
   input.value = ''
 }
 
 // If the field is not marked readonly, then focus on the field and show the on-screen keyboard (for mobile devices)
-function setFocus () {
+function setFocus() {
   if (!fieldProperties.READONLY) {
     input.focus()
     if (window.showSoftKeyboard) {
@@ -181,7 +200,7 @@ input.oninput = function () {
 
   // Limiter for Android devices, in case too long
   if (isAndroid && (charMax !== false) && (inputValue.length > charMax)) {
-    inputValue = inputValue.substr(0, charMax)
+    inputValue = inputValue.substring(0, charMax)
     input.value = inputValue
     input.innerHTML = inputValue
   }
