@@ -10,9 +10,7 @@
 
 Use this field plug-in if text responses will be somewhat longer, and you would like to have a larger text box to enter the data. You can also use this field plug-in to add a limit to the amount of text that can be entered, without needing to check it against a *constraint*.
 
-[![Beta](extras/readme-images/beta-release-download.jpg)](https://github.com/surveycto/text-box/raw/main/text-box.fieldplugin.zip)
-
-*This plug-in is currently under beta. If you you find a problem with the field plug-in, please email support@surveycto.com, or submit an issue to this GitHub repo.*
+[![Beta](extras/readme-images/download-button.png)](https://github.com/surveycto/text-box/raw/main/text-box.fieldplugin.zip)
 
 ### Features
 
@@ -54,6 +52,7 @@ This field returns the text entered into the text box.
 |`max` (optional)|The maximum number of characters that can be entered into the text box. If this parameter has no value, then there is no limit. This is helpful if you would like to make sure enumerators/enumerators do not enter too much information. It will also have a countdown showing the number of characters remaining.|
 |`count` (optional)|Whether or not to show the character count so far. The character count is hidden by default, but shown by default when `max` is specified. Here is a breakdown of the behavior of `count`:<ul><li>**`max` has a numeric value, and `count` is not specified**: The field will show the number of characters remaining.</li><li>**`max` has a numeric value, and `count` has a value of `0`**: The count will be hidden.</li><li>**`max` has no value, and `count` is not specified**:  The count will be hidden.</li><li>**`max` has no value, and `count` has a value of `1`**: The field will show the number of characters entered so far.</li></ul>|
 |`expand` (optional)|<p>If this parameter has a value of `1`, then the text box will expand to fit the content. This can be helpful if you would like enumerators to be able to easily view all content they have entered at once. This is also the default behavior of fields without field plug-ins.</p><p>Also, when `expand` has a value of `1`, instead of the `rows` parameter being used to determine the number of rows that will be shown, it defines the maximum number of rows it will expand to. For example, if `expand` has a value of `1`, and `rows` has a value of `5`, then the text box will expand until it is 5 rows tall, and then the enumerator will have to scroll to view the rest of the content.</p>|
+|`placeholder` (optional)|Custom placeholder text to show in the text box. Use an empty string (`''`) to show no placeholder. If not specified, uses the default SurveyCTO placeholder text ("Your answer here..." in English). Supports field references like `${field_name}`.|
 
 This field also inherits the parameter from the [baseline-text](https://github.com/surveycto/baseline-text/blob/master/README.md) field plug-in, but it is only needed in special cases when collecting data using an iOS device. Check out that field plug-in's section on [parameters](https://github.com/surveycto/baseline-text#parameters) to learn more.
 

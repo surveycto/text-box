@@ -24,7 +24,6 @@
     border: 1px solid #047CC2;
     box-sizing: border-box;
     margin: .5rem 0;
-    /* overflow: hidden; */
     padding: var(--padding);
     resize: none;
     width: 100%;
@@ -43,12 +42,14 @@ div.hidden-text {
 }
 
 div.hidden-text p {
-    padding: calc(var(--padding) + 1px);
+    padding: var(--padding);
 }
 
 /* For these, you can change these to whatever you want, as long as both classes share these properties */
-.response, div.hidden-text {
+.response,
+div.hidden-text {
     font-family: Arial, sans-serif;
     font-size: 16px;
+    line-height: 1.5;
     min-height: 60px;
 }
